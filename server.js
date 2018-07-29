@@ -10,7 +10,7 @@ const config = require('./config/database');
 const fdb = require('./services/fbase');
 const webpush = require('web-push');
 
-
+const port = process.env.PORT || 5000;
 //Basic Middileware init
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, "view")));
@@ -48,6 +48,6 @@ app.post('/subscribe', function (req , res) {
 
 });
 
-app.listen(5000 , function () {
+app.listen(port , function () {
   console.log('Server started on port ', 5000);
 });
